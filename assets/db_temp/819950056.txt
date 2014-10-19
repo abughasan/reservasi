@@ -1,0 +1,236 @@
+#
+# TABLE STRUCTURE FOR: ci_sessions
+#
+
+DROP TABLE IF EXISTS ci_sessions;
+
+CREATE TABLE `ci_sessions` (
+  `session_id` varchar(40) NOT NULL DEFAULT '0',
+  `ip_address` varchar(45) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+  `last_activity` int(10) unsigned NOT NULL DEFAULT '0',
+  `user_data` text NOT NULL,
+  PRIMARY KEY (`session_id`),
+  KEY `last_activity_idx` (`last_activity`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: tbl_barang
+#
+
+DROP TABLE IF EXISTS tbl_barang;
+
+CREATE TABLE `tbl_barang` (
+  `kode_barang` int(4) NOT NULL AUTO_INCREMENT,
+  `id_kategori` int(2) NOT NULL,
+  `nama_barang` varchar(100) NOT NULL,
+  `jumlah_barang` int(4) NOT NULL,
+  `harga_satuan` int(20) NOT NULL,
+  `keterangan` varchar(50) NOT NULL,
+  PRIMARY KEY (`kode_barang`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_barang (`kode_barang`, `id_kategori`, `nama_barang`, `jumlah_barang`, `harga_satuan`, `keterangan`) VALUES (4, 0, 'Kaca', 50, 200000, 'test');
+INSERT INTO tbl_barang (`kode_barang`, `id_kategori`, `nama_barang`, `jumlah_barang`, `harga_satuan`, `keterangan`) VALUES (8, 0, 'jam', 3, 14000, 'keteranga');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_denda
+#
+
+DROP TABLE IF EXISTS tbl_denda;
+
+CREATE TABLE `tbl_denda` (
+  `id_denda` int(2) NOT NULL AUTO_INCREMENT,
+  `no_transaksi` varchar(10) NOT NULL,
+  `kode_barang` int(4) NOT NULL,
+  `jumlah` int(2) NOT NULL,
+  `denda` varchar(10) NOT NULL,
+  `keterangan` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_denda`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: tbl_guide
+#
+
+DROP TABLE IF EXISTS tbl_guide;
+
+CREATE TABLE `tbl_guide` (
+  `kode_guide` varchar(10) NOT NULL,
+  `no_ktp` varchar(30) NOT NULL,
+  `nama_guide` varchar(30) NOT NULL,
+  `alamat` varchar(300) NOT NULL,
+  `no_telp` varchar(50) NOT NULL,
+  `sisa_pembayaran` int(20) NOT NULL,
+  `stts_guide` varchar(10) NOT NULL,
+  PRIMARY KEY (`kode_guide`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_guide (`kode_guide`, `no_ktp`, `nama_guide`, `alamat`, `no_telp`, `sisa_pembayaran`, `stts_guide`) VALUES ('GU001', '123', 'adin', 'tangerang', '021', 500000, 'test');
+INSERT INTO tbl_guide (`kode_guide`, `no_ktp`, `nama_guide`, `alamat`, `no_telp`, `sisa_pembayaran`, `stts_guide`) VALUES ('GU002', '123', 'test', 'tangerang', 'test', 30000, 'test');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_hadir
+#
+
+DROP TABLE IF EXISTS tbl_hadir;
+
+CREATE TABLE `tbl_hadir` (
+  `id_hadir` int(10) NOT NULL AUTO_INCREMENT,
+  `no_transaksi` varchar(50) NOT NULL,
+  `tgl_datang` date NOT NULL,
+  `tgl_pulang` date NOT NULL,
+  PRIMARY KEY (`id_hadir`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: tbl_kartu
+#
+
+DROP TABLE IF EXISTS tbl_kartu;
+
+CREATE TABLE `tbl_kartu` (
+  `id_kartu` int(2) NOT NULL AUTO_INCREMENT,
+  `kartu` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_kartu`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_kartu (`id_kartu`, `kartu`) VALUES (1, 'KTP');
+INSERT INTO tbl_kartu (`id_kartu`, `kartu`) VALUES (2, 'PASSPORT');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_kategori
+#
+
+DROP TABLE IF EXISTS tbl_kategori;
+
+CREATE TABLE `tbl_kategori` (
+  `id_kategori` int(2) NOT NULL AUTO_INCREMENT,
+  `kategori` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_kategori`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_kategori (`id_kategori`, `kategori`) VALUES (1, 'Peralatan Kamar Mandi');
+INSERT INTO tbl_kategori (`id_kategori`, `kategori`) VALUES (2, 'Peralatan Kamar Tidur');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_login
+#
+
+DROP TABLE IF EXISTS tbl_login;
+
+CREATE TABLE `tbl_login` (
+  `username` varchar(50) NOT NULL,
+  `password` varchar(75) NOT NULL,
+  `nama_pengguna` varchar(100) NOT NULL,
+  `stts` varchar(10) NOT NULL,
+  PRIMARY KEY (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_login (`username`, `password`, `nama_pengguna`, `stts`) VALUES ('adin', 'adin', 'adin', 'admin');
+INSERT INTO tbl_login (`username`, `password`, `nama_pengguna`, `stts`) VALUES ('ali', '7f3aedb47d6256090d351040ca8aef20', 'ali', 'admin');
+INSERT INTO tbl_login (`username`, `password`, `nama_pengguna`, `stts`) VALUES ('udin', 'c50ed46a529e9fcbd768a1934dda04c2', 'udin', 'admin');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_pembayaran
+#
+
+DROP TABLE IF EXISTS tbl_pembayaran;
+
+CREATE TABLE `tbl_pembayaran` (
+  `id_bayar` int(4) NOT NULL AUTO_INCREMENT,
+  `no_transaksi` varchar(20) NOT NULL,
+  `tgl_bayar` date NOT NULL,
+  `jml_bayar` varchar(20) NOT NULL,
+  `status_bayar` varchar(10) NOT NULL,
+  PRIMARY KEY (`id_bayar`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+#
+# TABLE STRUCTURE FOR: tbl_status_v
+#
+
+DROP TABLE IF EXISTS tbl_status_v;
+
+CREATE TABLE `tbl_status_v` (
+  `id_status` int(2) NOT NULL AUTO_INCREMENT,
+  `status_villa` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_status`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_status_v (`id_status`, `status_villa`) VALUES (1, 'Free');
+INSERT INTO tbl_status_v (`id_status`, `status_villa`) VALUES (2, 'Booking');
+INSERT INTO tbl_status_v (`id_status`, `status_villa`) VALUES (3, 'Check In');
+INSERT INTO tbl_status_v (`id_status`, `status_villa`) VALUES (4, 'Check Out');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_tamu
+#
+
+DROP TABLE IF EXISTS tbl_tamu;
+
+CREATE TABLE `tbl_tamu` (
+  `id_tamu` int(4) NOT NULL AUTO_INCREMENT,
+  `jenis_kartu_id` int(30) NOT NULL,
+  `no_kartu_id` int(25) NOT NULL,
+  `nama_tamu` varchar(30) NOT NULL,
+  `alamat_tamu` varchar(300) NOT NULL,
+  `tlp` varchar(15) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  PRIMARY KEY (`id_tamu`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_tamu (`id_tamu`, `jenis_kartu_id`, `no_kartu_id`, `nama_tamu`, `alamat_tamu`, `tlp`, `status`) VALUES (2, 0, 73, 'afdfaf', 'fddafafa', '0999990', 'blacklist');
+
+
+#
+# TABLE STRUCTURE FOR: tbl_transaksi
+#
+
+DROP TABLE IF EXISTS tbl_transaksi;
+
+CREATE TABLE `tbl_transaksi` (
+  `no_transaksi` varchar(10) NOT NULL,
+  `tgl_transaksi` date NOT NULL,
+  `id_tamu` int(4) NOT NULL,
+  `kode_villa` varchar(10) NOT NULL,
+  `tgl_cekin` date NOT NULL,
+  `tgl_cekout` date NOT NULL,
+  `lama_hari` int(2) NOT NULL,
+  `dapat_harga` int(20) NOT NULL,
+  `bayar` int(20) NOT NULL,
+  `sisa_bayar` int(20) NOT NULL,
+  `id_guide` int(2) DEFAULT NULL,
+  `id_status` int(2) DEFAULT NULL,
+  `id_hadir` int(2) DEFAULT NULL,
+  PRIMARY KEY (`no_transaksi`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_transaksi (`no_transaksi`, `tgl_transaksi`, `id_tamu`, `kode_villa`, `tgl_cekin`, `tgl_cekout`, `lama_hari`, `dapat_harga`, `bayar`, `sisa_bayar`, `id_guide`, `id_status`, `id_hadir`) VALUES ('TS00000001', '2014-06-21', 2, 'VIL002', '2014-06-20', '2014-06-30', 0, 0, 0, 0, 0, NULL, NULL);
+
+
+#
+# TABLE STRUCTURE FOR: tbl_villa
+#
+
+DROP TABLE IF EXISTS tbl_villa;
+
+CREATE TABLE `tbl_villa` (
+  `kode_villa` varchar(10) NOT NULL,
+  `nama_villa` varchar(30) NOT NULL,
+  `tarif_villa` int(25) NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`kode_villa`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+INSERT INTO tbl_villa (`kode_villa`, `nama_villa`, `tarif_villa`, `url`) VALUES ('VIL001', 'bacelona b', 1500000, NULL);
+INSERT INTO tbl_villa (`kode_villa`, `nama_villa`, `tarif_villa`, `url`) VALUES ('VIL002', 'Real Madrid a', 2500000, NULL);
+INSERT INTO tbl_villa (`kode_villa`, `nama_villa`, `tarif_villa`, `url`) VALUES ('VIL003', 'Sevilla', 2000000, NULL);
+
+

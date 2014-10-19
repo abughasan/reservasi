@@ -1,0 +1,475 @@
+body{
+	background-image:url('../img/body1.jpg');	
+	background-size:100%;
+	-- background-position: 0px 0px 0px 0px;
+	background-attachment: fixed;
+}
+.canvas {
+	padding:10px;
+}
+.btn {
+	 box-shadow: 2px 2px 0px #000;
+}
+
+.cleaner_h0 { clear: both; width:100%; height: 0px; }
+.cleaner_h1 { clear: both; width:100%; height: 1px; }
+.cleaner_h5 { clear: both; width:100%; height: 5px; }
+.cleaner_h10 { clear: both; width:100%; height: 10px; }
+.cleaner_h20 { clear: both; width:100%; height: 20px; }
+.cleaner_h30 { clear: both; width:100%; height: 30px; }
+.cleaner_h40 { clear: both; width:100%; height: 40px; }
+.cleaner_h50 { clear: both; width:100%; height: 50px; }
+.cleaner_h60 { clear: both; width:100%; height: 60px; }
+
+table.date {
+	border: 1px solid #fff;
+	border-collapse: collapse;
+	--font-family: Georgia, Times, serif;
+}
+.date th {
+	border: 1px solid #fff;
+	text-transform: uppercase;
+	padding: 10px;
+	background-color: #ccc;
+	color: red;
+}
+.date td {
+	border: 1px solid #fff;
+	height: 3em;
+	width: 3.8em;
+	padding: 0px;
+	vertical-align: top;
+	font-size: 30px;
+	color : #fff;
+	background-color:#5cb85c;
+	
+}
+.date td a {
+	height:100%;
+	width:100%;
+	background-color:#d9534f;
+	display:block;
+	color:white;
+	opacity:0.85;
+}
+.date td a:hover {
+	text-decoration:none;
+	background-color:#d9534f;
+	opacity:1;
+}
+caption {
+	font-size: 300%;
+	--font-family: Georgia, Times, serif;
+	padding-bottom : 10px;
+	text-transform: uppercase;
+	--font-style: ;
+	color : #fff999;
+	
+}
+
+a{
+	text-decoration:none;
+}
+
+a.prev_date, a.next_date{
+	font-weight:bold;
+	color :#fff;
+}
+
+.add_note, .act_note{
+	cursor:pointer;
+}
+
+.add_note:hover, .act_note:hover{
+	color:#FF0000;
+	font-weight:bold;
+}
+
+.active, .notes {
+	background-color: #green;
+}
+.t_active, .t_notes {
+	background-color: #FF7575;
+	font-weight:bold;
+}
+`
+.active, .t_active, .day{
+	padding: 3px 0px 0px 6px;
+	height: 1em;
+}
+
+.today{
+	color : red;
+}
+
+.notes, .t_notes{
+	padding: 6px 3px 16px 6px;
+	font-family: Georgia, "times new roman";
+	font-size: 13px;
+	height: 4em;
+}
+
+.weekend_sat {
+	--background-color: red;
+}
+.weekend_sun {
+	--background-color: #ccc;
+}
+
+
+/***
+Tiles(new in v1.1.1)
+***/
+.name{
+	display: block;
+	color: green;
+	text-align: center;
+	padding-left: 7px;
+}
+
+.tiles {
+  margin-right: -10px;
+}
+
+.tile {
+  display: block;
+  letter-spacing: 0.02em;
+  float: left;
+  height: 125px;
+  width: 128px !important;
+  cursor: pointer;
+  text-decoration: none;
+  color: #ffffff;
+  position: relative;
+  font-weight: 300;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  line-height: 20px;
+  font-smooth: always;
+  overflow: hidden;
+  border: 4px solid transparent;
+  margin: 0 10px 10px 0;
+}
+
+.tile:after,
+.tile:before {
+  content: "";
+  float: left; 
+}
+
+.tile.double {
+  width: 280px !important;
+}
+
+.tile.double-down {
+  height: 280px !important;
+}
+
+.tile:active, .tile.selected {
+  border-color: #ccc !important;
+}
+
+.tile:hover {
+  border-color: #aaa !important;
+}
+
+.tile.selected .corner:after {  
+  content: "";
+  display: inline-block;
+  border-left: 40px solid transparent;
+  border-bottom: 40px solid transparent;
+  border-right: 40px solid #ccc;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+}
+
+.tile.selected .check:after {  
+  content: "";
+  font-family: FontAwesome;
+  font-size: 13px;
+  content: "\f00c";
+  display: inline-block;
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.tile * {
+  color: #ffffff;
+}
+
+
+.tile .tile-body {
+  height: 100%;
+  vertical-align: midle;
+  padding: 10px 10px;  
+  overflow: hidden;
+  text-overflow: ellipsis;
+  position: relative;
+  font-weight: 400;
+  font-size: 12px;
+  font-smooth: always;
+  color: #000000;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+
+.tile .tile-body img {
+  float: left;
+  margin-right: 10px;
+}
+
+.tile .tile-body img.pull-right {
+  float: right !important;
+  margin-left: 10px;
+  margin-right: 0px;
+}
+
+.tile .tile-body .content {
+  display: inline-block;
+}
+
+.tile .tile-body > i {
+  margin-top: 17px;
+  display: block;
+  font-size: 56px;
+  line-height: 56px;
+  text-align: center;
+}
+
+
+.tile.double-down i {
+  margin-top: 95px;
+}
+
+.tile .tile-body h1,
+.tile .tile-body h2,
+.tile .tile-body h3,
+.tile .tile-body h4,
+.tile .tile-body h5,
+.tile .tile-body h6,
+.tile .tile-body p {
+  padding: 0;
+  margin: 0;
+  line-height: 14px;
+}
+
+.tile .tile-body h3,
+.tile .tile-body h4 {
+  margin-bottom: 5px;
+}
+
+.tile .tile-body h1:hover,
+.tile .tile-body h2:hover,
+.tile .tile-body h3:hover,
+.tile .tile-body h4:hover,
+.tile .tile-body h5:hover,
+.tile .tile-body h6:hover,
+.tile .tile-body p:hover {
+  color: #ffffff;
+}
+
+.tile .tile-body p {
+  font-weight: 400;
+  font-size: 13px;
+  font-smooth: always;
+  color: #000000;
+  color: #ffffff;
+  line-height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tile .tile-body p:hover {
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.tile .tile-body p:active {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.tile .tile-body p:hover {
+  color: #ffffff;
+}
+
+.tile.icon > .tile-body {
+  padding: 0;
+}
+
+
+
+
+.tile .tile-object {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  min-height: 30px;
+  background-color: transparent;
+  zoom: 1;
+}
+
+.tile .tile-object:before,
+.tile .tile-object:after {
+  display: table;
+  content: "";
+}
+
+.tile .tile-object:after {
+  clear: both;
+}
+
+.tile .tile-object > .name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-right: 15px;
+  font-weight: 400;
+  font-size: 13px;
+  font-smooth: always;
+  color: #ffffff;
+}
+
+.tile .tile-object > .name > i {
+  vertical-align: middle;
+  display: block;
+  font-size: 24px;
+  height: 18px;
+  width: 24px;
+}
+
+.tile .tile-object > .number {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 0;
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  line-height: 14px;
+  font-smooth: always;
+  margin-bottom: 8px;
+  margin-right: 10px;
+}
+
+
+/***
+General backgrounds. Can be applied to any block or panel
+***/
+
+.bg-blue {
+  background-image: none !important;
+  background-color: #4b8df8 !important;
+  border-color:#4b8df8 !important;
+  color: #fff !important;
+}
+
+.bg-red {
+  background-image: none !important;
+  background-color: #e02222 !important;
+  border-color: #e02222 !important;
+  color: #fff !important;
+}
+
+.bg-yellow {
+  background-image: none !important;
+  background-color: #ffb848 !important;
+  border-color: #ffb848 !important;
+  color: #fff !important;
+}
+
+.bg-green {
+  background-image: none !important;
+  background-color: #35aa47 !important;
+  border-color: #35aa47 !important;
+  color: #fff !important;
+}
+
+.bg-purple {
+  background-image: none !important;
+  background-color: #852b99 !important;
+  border-color: #852b99 !important;
+  color: #fff !important;
+}
+
+.bg-dark {
+  background-image: none !important;
+  background-color: #555555 !important;
+  border-color: #555555 !important;
+  color: #fff !important;
+}
+
+.be-grey {
+  background-image: none !important;
+  background-color: #fafafa !important;
+  border-color: #fafafa !important;
+}
+
+/** TAB STYLE */
+.tab-mod li.active a, 
+.tab-mod li.active a:hover,
+.tab-mod li.active a:focus
+{
+	color: #000 !important;	
+	background-color: #000 !important;
+	border-color: #000 !important;
+}
+
+.panel-mod{
+	background-color: #000 !important;	
+	background-color: #000 !important;
+	border-color: #000 !important;
+}
+
+.panel2{
+
+}
+.panel3{
+
+}
+
+
+.pagingpage-nomor{
+background-color: #fff;
+text-align:center;
+width:20px;
+padding: 3px;
+border: 1px solid #CCCCCC;
+float:left;
+margin:1px;
+}
+
+.pagingpage-nomor a{
+text-decoration:none;
+}
+
+.pagingpage-nomor a:hover{
+text-decoration:underline;
+}
+
+.pagingpage{
+background-color: #fff;
+padding: 3px;
+border: 1px solid #CCCCCC;
+float:left;
+margin:1px;
+}
+
+.pagingpage a{
+text-decoration:none;
+}
+
+.pagingpage a:hover{
+text-decoration:underline;
+}
+
+.thumbnail{
+	height: 400px;
+	padding : 20px;
+	margin : 20px;
+}

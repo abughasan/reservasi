@@ -1,0 +1,30 @@
+.ui-dialog .ui-header, 
+.ui-dialog .ui-content, 
+.ui-dialog .ui-footer { 
+    max-width: 500px; 
+    margin: 0 auto; 
+}
+#info{
+    padding-top:10%;
+}
+.mybutton{
+    margin-top:30px;
+}
+#info #info-content{
+    text-align:center;
+    height:100px;
+    padding-top:30px;
+}
+.error{
+    color:#FF0000;
+    font-weight:bold;
+}
+#nav-button{
+    text-align:center;
+}
+.red{
+    color:#FF0000;
+}
+.green{
+    color:#5EB33F;
+}
